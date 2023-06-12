@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chuva de Números</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: black;
+    }
+
+    .rain {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .number {
+      position: absolute;
+      font-size: 1rem;
+      animation: rain 2s linear infinite;
+      color: white;
+    }
+
+    @keyframes rain {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(100vh);
+      }
+    }
+    
+    body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+}
+
+.rain {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.number {
+  position: absolute;
+  font-size: 2rem;
+  animation: rain 1s linear infinite;
+  color: green;
+}
+
+@keyframes rain {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="rain"></div>
+  <script>
+  
+    function createNumber() {
+      var number = document.createElement('span');
+      number.classList.add('number');
+      number.textContent = Math.floor(Math.random() * 50);
+      number.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+      document.querySelector('.rain').appendChild(number);
+      setTimeout(function() {
+        number.remove();
+      }, 2000);
+    }
+
+    setInterval(function() {
+      createNumber();
+    }, 5);
+  
+  
+ </script>
+  
+<script src="content://media/external/downloads/27061"></script>
+</body>
+</html>
